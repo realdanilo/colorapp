@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ColorBox from './ColorBox'
-import Slider, { Range } from 'rc-slider'
-import 'rc-slider/assets/index.css'
+import Navbar from './Navbar'
 import './Palette.css'
 class Palette extends Component {
     constructor(props) {
@@ -20,10 +19,7 @@ class Palette extends Component {
         const colorBoxes = colors[slider].map((color, i) => <ColorBox key={i} background={color.hex} name={color.name} />)
         return (
             <div className="Palette">
-                <div className="slider">
-                    <Slider className="slider-nav" defaultValue={slider} min={100} max={900} onAfterChange={this.changeSlider} step={100} />
-
-                </div>
+                <Navbar className="navbar" slider={slider} changeSlider={this.changeSlider} />
                 <div className="Palette-colors">
                     {colorBoxes}
                 </div>
