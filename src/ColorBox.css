@@ -2,10 +2,9 @@
     width:20%;
     height:25%;
     display: inline-block;
-    /* cursor:pointer; */
     position: relative;
-    /* problem while adjusting MORE button */
-    /* margin-bottom: -3.5px; */
+    /* issue while adjusting MORE button */
+    margin-bottom: -3.9px;
 }
 .copy-button{
     width:100px;
@@ -44,10 +43,11 @@
     background-color: rgba(255,255,255,0.4);
     position: absolute;
     border:none;
-    right:0;  
-    bottom:0;
+    right:0px;  
+    bottom:0px;
     margin:0;
     padding:2%;
     font-size: 12px;
+    cursor: pointer;
     color:white;
 }
