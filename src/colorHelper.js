@@ -1,13 +1,3 @@
-// {
-//     paletteName: "Material UI Colors",
-//     id: "material-ui-colors",
-//     emoji: "🎨",
-//     colors: {
-//         50:[],
-//         100:[]
-//     }
-// },
-
 import chroma, { hex } from 'chroma-js'
 
 const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
