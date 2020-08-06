@@ -20,8 +20,10 @@ class Palette extends Component {
         const colorBoxes = colors[slider].map((color, i) => <ColorBox key={i} background={color.hex} name={color.name} />)
         return (
             <div className="Palette">
-                {/* Navbar goes here */}
-                <Slider defaultValue={slider} min={100} max={900} onAfterChange={this.changeSlider} step={100} />
+                <div className="slider">
+                    <Slider className="slider-nav" defaultValue={slider} min={100} max={900} onAfterChange={this.changeSlider} step={100} />
+
+                </div>
                 <div className="Palette-colors">
                     {colorBoxes}
                 </div>
