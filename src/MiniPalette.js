@@ -5,10 +5,9 @@ const styles = {
   root: {
     backgroundColor: "white",
     border: "1px solid black",
-    borderRadious: "5px",
+    borderRadius: "5px",
     position: "relative",
     padding: ".5rem",
-    margin: ".3rem",
     overflow: "hidden",
     "&:hover": {
       cursor: "pointer",
