@@ -24,7 +24,7 @@ const styles = {
     justifyContent: "space-between",
     color: "white",
   },
-  palettesDesign: {
+  palettes: {
     boxSizing: "border-box",
     width: "100%",
     display: "grid",
@@ -38,15 +38,14 @@ class PaletteList extends Component {
     this.state = {};
   }
   render() {
-    const { palettes } = this.props;
-    const { root, container, nav, palettesDesign } = this.props.classes;
+    const { palettes, classes } = this.props;
     return (
-      <div className={root}>
-        <div className={container}>
-          <nav className={nav}>
+      <div className={classes.root}>
+        <div className={classes.container}>
+          <nav className={classes.nav}>
             <h1>React Colors</h1>
           </nav>
-          <div className={palettesDesign}>
+          <div className={classes.palettes}>
             {palettes.map((p, i) => (
               <MiniPalette key={i} {...p} />
             ))}
