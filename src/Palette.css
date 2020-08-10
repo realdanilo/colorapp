@@ -1,10 +1,28 @@
-.Palette{
-    height:100vh;
-    overflow: hidden;
+.Palette {
+  height: 100vh;
+  overflow: hidden;
 }
-.Palette-colors{
-    height:90%;
+.Palette p,
+.Palette span {
+  margin: 0;
+  padding: 0;
 }
-.navbar{
-    max-height:5%;
+.Palette-colors {
+  height: 90%;
+}
+.navbar {
+  max-height: 5%;
+}
+.Palette-footer {
+  background-color: white;
+  max-height: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+.emoji {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
 }
