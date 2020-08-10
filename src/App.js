@@ -4,7 +4,7 @@ import seedColors from "./seedColors";
 import "./App.css";
 import { generatePalette } from "./colorHelper";
 import { Route, Switch } from "react-router-dom";
-
+import PaletteList from "./PaletteList";
 function App() {
   function findPalette(id) {
     return generatePalette(seedColors.find((p) => p.id === id));
@@ -12,7 +12,11 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" render={() => <p>Home</p>} />
+        <Route
+          exact
+          path="/"
+          render={() => <PaletteList palettes={seedColors} />}
+        />
         <Route
           exact
           path="/palette/:id"
@@ -20,7 +24,6 @@ function App() {
         />
         <Route render={() => <h1>Not found</h1>} />
       </Switch>
-      {/* <Palette palette={generatePalette(seedColors[2])} /> */}
     </div>
   );
 }
