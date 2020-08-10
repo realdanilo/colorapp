@@ -6,20 +6,27 @@ class Palette extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            slider: 500
+            slider: 500,
+            format: 'hex'
         }
         this.changeSlider = this.changeSlider.bind(this)
+        this.handleFormat = this.handleFormat.bind(this)
     }
     changeSlider(newSlider) {
         this.setState({ slider: newSlider })
     }
+    handleFormat(value) {
+        this.setState({ format: value })
+    }
     render() {
         const { colors } = this.props.palette
-        const { slider } = this.state
-        const colorBoxes = colors[slider].map((color, i) => <ColorBox key={i} background={color.hex} name={color.name} />)
+        const { slider, format } = this.state
+        const colorBoxes = colors[slider].map((color, i) => <ColorBox key={i} background={color[format]} name={color.name} />)
         return (
             <div className="Palette">
-                <Navbar className="navbar" slider={slider} changeSlider={this.changeSlider} />
+                {/* Navbar */}
+                <Navbar className="navbar" slider={slider} changeSlider={this.changeSlider} handleFormat={this.handleFormat} />
+                {/* Color Boxes */}
                 <div className="Palette-colors">
                     {colorBoxes}
                 </div>
