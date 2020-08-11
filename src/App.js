@@ -22,6 +22,11 @@ function App() {
           path="/palette/:id"
           render={(rp) => <Palette palette={findPalette(rp.match.params.id)} />}
         />
+        <Route
+          exact
+          path="/palette/:id/:color"
+          render={() => <h1>Single Color Page</h1>}
+        />
         <Route render={() => <h1>Not found</h1>} />
       </Switch>
     </div>
