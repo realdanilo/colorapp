@@ -6,7 +6,8 @@
   /* issue while adjusting MORE button */
   margin-bottom: -3.9px;
 }
-.copy-button {
+.copy-button,
+.back-button {
   width: 100px;
   height: 30px;
   position: absolute;
@@ -25,8 +26,12 @@
   opacity: 0;
   transition: 0.3s opacity ease;
   cursor: pointer;
+  text-decoration: none !important;
 }
 .ColorBox:hover .copy-button {
+  opacity: 1;
+}
+.back-button {
   opacity: 1;
 }
 .box-content {
@@ -98,4 +103,11 @@
 .copy-message p {
   font-size: 3rem;
   font-weight: 200;
+}
+/* Single Color Palette */
+.SingleColorPalette .ColorBox {
+  height: 50%;
+}
+.ColorBox.go-back {
+  background-color: rgb(0, 0, 0);
 }
