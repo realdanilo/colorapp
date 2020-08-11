@@ -44,6 +44,7 @@
   letter-spacing: 1px;
   font-size: 12px;
 }
+
 .see-more {
   background-color: rgba(255, 255, 255, 0.4);
   position: absolute;
@@ -103,6 +104,13 @@
 .copy-message p {
   font-size: 3rem;
   font-weight: 200;
+}
+/* luminosity */
+.light-text {
+  color: #fff;
+}
+.dark-text {
+  color: rgba(0, 0, 0, 0.8);
 }
 /* Single Color Palette */
 .SingleColorPalette .ColorBox {
