@@ -26,7 +26,13 @@ function App() {
         <Route
           exact
           path="/palette/:paletteId/:colorId"
-          render={() => <SingleColorPalette />}
+          render={(rp) => (
+            <SingleColorPalette
+              {...rp}
+              colorId={rp.match.params.colorId}
+              palette={findPalette(rp.match.params.paletteId)}
+            />
+          )}
         />
         <Route render={() => <h1>Not found</h1>} />
       </Switch>
