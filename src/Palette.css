@@ -14,12 +14,13 @@
   max-height: 5%;
 }
 .Palette-footer {
-  background-color: white;
-  max-height: 5%;
+  background-color: rgb(212, 211, 211);
+  height: 25px;
+  line-height: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 10px;
+  padding: 0 10px;
 }
 .emoji {
   font-weight: bold;
