@@ -28,7 +28,7 @@ class Navbar extends Component {
     this.setState({ open: false });
   }
   render() {
-    const { slider, changeSlider } = this.props;
+    const { slider, changeSlider, showingAllColors } = this.props;
     const { format, open } = this.state;
     return (
       <nav className="Navbar">
@@ -36,17 +36,19 @@ class Navbar extends Component {
           <div className="logo">
             <Link to="/">React Color Picker</Link>
           </div>
-          <div className="slider">
-            <span>Level {slider}</span>
-            <Slider
-              className="slider-nav"
-              defaultValue={slider}
-              min={100}
-              max={900}
-              onAfterChange={changeSlider}
-              step={100}
-            />
-          </div>
+          {showingAllColors && (
+            <div className="slider">
+              <span>Level {slider}</span>
+              <Slider
+                className="slider-nav"
+                defaultValue={slider}
+                min={100}
+                max={900}
+                onAfterChange={changeSlider}
+                step={100}
+              />
+            </div>
+          )}
         </div>
         <div className="right-navbar">
           <Select onChange={this.handleFormatChange} value={format}>
