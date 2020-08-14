@@ -81,7 +81,7 @@ class NewPaletteForm extends Component {
     this.state = {
       open: false,
       currentColor: "red",
-      colors: [{ color: "black", name: "my black color" }],
+      colors: [{ color: "#333", name: "my black color" }],
       newColorName: "",
       newPaletteName: "",
     };
@@ -135,6 +135,11 @@ class NewPaletteForm extends Component {
 
   handleDrawerClose = () => {
     this.setState({ open: false });
+  };
+  removeColor = (colorName) => {
+    this.setState({
+      colors: this.state.colors.filter((color) => color.name !== colorName),
+    });
   };
 
   render() {
@@ -242,7 +247,12 @@ class NewPaletteForm extends Component {
           <div className={classes.drawerHeader} />
 
           {this.state.colors.map((color, i) => (
-            <DragableColorBox key={i} color={color.color} name={color.name} />
+            <DragableColorBox
+              key={i}
+              color={color.color}
+              name={color.name}
+              handleClick={() => this.removeColor(color.name)}
+            />
           ))}
         </main>
       </div>
