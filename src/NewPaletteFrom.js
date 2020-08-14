@@ -7,9 +7,8 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { ChromePicker } from "react-color";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import PaletteFormNav from "./PaletteFormNav";
+import ColorPickerForm from "./ColorPickerForm";
 // dragable comp
 import DragableColorList from "./DragableColorList";
 import arrayMove from "array-move";
@@ -83,21 +82,10 @@ class NewPaletteForm extends Component {
     super(props);
     this.state = {
       open: false,
-      currentColor: "red",
       colors: this.props.palettes[0].colors,
-      newColorName: "",
     };
   }
-  componentDidMount() {
-    ValidatorForm.addValidationRule("isColorNameUnique", (value) =>
-      this.state.colors.every(
-        ({ name }) => name.toLowerCase() !== value.toLowerCase()
-      )
-    );
-    ValidatorForm.addValidationRule("isColorUnique", (value) =>
-      this.state.colors.every(({ color }) => color !== this.state.currentColor)
-    );
-  }
+
   savePalette = (newPaletteName) => {
     let newPalette = {
       paletteName: newPaletteName,
@@ -123,18 +111,10 @@ class NewPaletteForm extends Component {
       [e.target.name]: e.target.value,
     });
   };
-  addNewColor = () => {
-    let newColor = {
-      name: this.state.newColorName,
-      color: this.state.currentColor,
-    };
+  addNewColor = (newColor) => {
     this.setState((st) => ({
       colors: [...st.colors, newColor],
-      newColorName: "",
     }));
-  };
-  handleColorChange = (color) => {
-    this.setState({ currentColor: color.hex });
   };
 
   handleDrawerOpen = () => {
@@ -201,39 +181,11 @@ class NewPaletteForm extends Component {
               Random Color
             </Button>
           </div>
-
-          <ChromePicker
-            color={this.state.currentColor}
-            onChangeComplete={this.handleColorChange}
+          <ColorPickerForm
+            paletteIsFull={paletteIsFull}
+            addNewColor={this.addNewColor}
+            colors={colors}
           />
-
-          <ValidatorForm onSubmit={this.addNewColor}>
-            <TextValidator
-              label="Color Name"
-              value={this.state.newColorName}
-              name="newColorName"
-              onChange={this.handleChange}
-              validators={["required", "isColorNameUnique", "isColorUnique"]}
-              errorMessages={[
-                "this field is required",
-                "Name already in use",
-                "Color  already in use",
-              ]}
-            />
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              disabled={paletteIsFull}
-              style={{
-                backgroundColor: paletteIsFull
-                  ? "grey"
-                  : this.state.currentColor,
-              }}
-            >
-              {paletteIsFull ? "Palette is full" : "Add Color"}
-            </Button>
-          </ValidatorForm>
         </Drawer>
         <main
           className={classNames(classes.content, {
