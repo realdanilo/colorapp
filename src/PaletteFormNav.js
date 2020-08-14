@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
+import PaletteMetaForm from "./PaletteMetaForm";
 
 const drawerWidth = 320;
 
@@ -44,26 +45,11 @@ const styles = (theme) => ({
 class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      newPaletteName: "",
-    };
+    this.state = {};
   }
-  componentDidMount() {
-    ValidatorForm.addValidationRule("isPaletteNameUnique", (value) =>
-      this.props.palettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-      )
-    );
-  }
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
 
   render() {
-    const { classes, open } = this.props;
-    const { newPaletteName } = this.state;
+    const { classes, open, palettes, savePalette } = this.props;
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -88,24 +74,7 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-            <ValidatorForm
-              onSubmit={() => this.props.savePalette(newPaletteName)}
-            >
-              <TextValidator
-                value={this.state.newPaletteName}
-                label="Enter Palette Name"
-                name="newPaletteName"
-                onChange={this.handleChange}
-                validators={["required", "isPaletteNameUnique"]}
-                errorMessages={[
-                  "Enter Palette Name",
-                  "Palette Name already taken",
-                ]}
-              />
-              <Button variant="contained" color="primary" type="submit">
-                Save Palette
-              </Button>
-            </ValidatorForm>
+            <PaletteMetaForm palettes={palettes} savePalette={savePalette} />
             <Link to="/">
               <Button variant="contained" color="secondary">
                 Go Back
