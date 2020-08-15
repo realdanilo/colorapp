@@ -13,69 +13,8 @@ import ColorPickerForm from "./ColorPickerForm";
 import DragableColorList from "./DragableColorList";
 import arrayMove from "array-move";
 
-// material ui
-const drawerWidth = 320;
-
-const styles = (theme) => ({
-  root: {
-    display: "flex",
-  },
-
-  hide: {
-    display: "none",
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    display: "flex",
-    alignItems: "center",
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-  content: {
-    height: "calc(100vh - 64px)",
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
-  container: {
-    width: "90%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-  },
-  colorPicker: {
-    display: "100%",
-  },
-  buttonContainer: {
-    marginTop: "10px",
-    width: "100%",
-  },
-  button: {
-    width: "50%",
-  },
-});
+//styles
+import styles from "./styles/NewPaletteFormStyles";
 
 class NewPaletteForm extends Component {
   static defaultProps = {
