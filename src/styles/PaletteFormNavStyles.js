@@ -27,12 +27,17 @@ const styles = (theme) => ({
   },
   navBtns: {
     marginRight: "1rem",
+    display: "flex",
+    flexWrap: "nowrap",
   },
   button: {
     margin: "0 0.5rem",
   },
   link: {
     textDecoration: "none",
+  },
+  hide: {
+    display: "none",
   },
 });
 
