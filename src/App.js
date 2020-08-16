@@ -35,8 +35,7 @@ class App extends Component {
       JSON.stringify(this.state.palettes)
     );
   };
-  deletePalette = (e, id) => {
-    e.stopPropagation();
+  deletePalette = (id) => {
     this.setState(
       (st) => ({
         palettes: st.palettes.filter((p) => p.id !== id),
