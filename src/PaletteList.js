@@ -3,13 +3,17 @@ import { withStyles } from "@material-ui/core/styles";
 import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
 import sizes from "./styles/sizes";
+import background from "./styles/bg.svg";
 const styles = {
   root: {
-    backgroundColor: "blue",
     height: "100vh",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
+    backgroundColor: "#164aaa",
+    backgroundImage: `url(${background})`,
+    // background by SVGbackgrounds.com
+    overflowY: "scroll",
   },
   container: {
     width: "50%",
@@ -27,6 +31,9 @@ const styles = {
     justifyContent: "space-between",
     color: "white",
     alignItems: "center",
+    "& h1": {
+      fontSize: "30px",
+    },
     "& a": {
       color: "white",
       textDecoration: "none",
