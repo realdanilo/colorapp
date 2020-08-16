@@ -4,7 +4,23 @@ import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
 import sizes from "./styles/sizes";
 import background from "./styles/bg.svg";
+//transition
+import {
+  Transition,
+  CSSTransition,
+  TransitionGroup,
+} from "react-transition-group";
+
 const styles = {
+  "@global": {
+    ".fade-exit": {
+      opacity: 1,
+    },
+    ".fade-exit-active": {
+      opacity: 0,
+      transition: "opacity .5s ease-out",
+    },
+  },
   root: {
     height: "100vh",
     display: "flex",
@@ -79,16 +95,19 @@ class PaletteList extends Component {
             <h1>React Colors</h1>
             <Link to="/palette/new">New Palette</Link>
           </nav>
-          <div className={classes.palettes}>
+
+          <TransitionGroup className={classes.palettes}>
             {palettes.map((p, i) => (
-              <MiniPalette
-                key={i}
-                {...p}
-                handleClick={() => this.goToPalette(p.id)}
-                handleDelete={handleDelete}
-              />
+              <CSSTransition key={p.id} classNames="fade" timeout={500}>
+                <MiniPalette
+                  key={i}
+                  {...p}
+                  handleClick={() => this.goToPalette(p.id)}
+                  handleDelete={handleDelete}
+                />
+              </CSSTransition>
             ))}
-          </div>
+          </TransitionGroup>
         </div>
       </div>
     );
