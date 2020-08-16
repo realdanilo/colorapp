@@ -43,7 +43,6 @@ class PaletteMetaForm extends Component {
     });
   };
   handleSelect = (emoji) => [
-    console.log(emoji.native),
     this.props.savePalette(this.state.newPaletteName, emoji),
   ];
   render() {

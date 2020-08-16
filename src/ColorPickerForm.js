@@ -10,7 +10,7 @@ const styles = {
   },
   picker: {
     width: "100% !important",
-    marginTop: "2rem",
+    marginTop: "10px",
   },
   addColor: {
     width: "100%",
@@ -20,7 +20,7 @@ const styles = {
   },
   colorNameInput: {
     width: "100%",
-    marginTop: "20px",
+    marginTop: "10px",
   },
 };
 

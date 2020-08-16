@@ -54,9 +54,12 @@ const styles = (theme) => ({
   buttonContainer: {
     marginTop: "10px",
     width: "100%",
+    display: "flex",
+    maxWidth: "100%",
+    justifyContent: "space-between",
   },
   button: {
-    width: "50%",
+    width: "45%",
   },
 });
 export default styles;
