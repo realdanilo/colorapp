@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
+import sizes from "./styles/sizes";
 const styles = {
   root: {
     backgroundColor: "blue",
@@ -16,6 +17,9 @@ const styles = {
     alignItems: "flex-start",
     flexDirection: "column",
     flewWrap: "wrap",
+    [sizes.down("md")]: {
+      width: "80%",
+    },
   },
   nav: {
     display: "flex",
@@ -37,7 +41,17 @@ const styles = {
     maxHeight: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(3,30%)",
-    gridGap: "5%",
+    gridGap: "2.5rem",
+    [sizes.down("md")]: {
+      gridTemplateColumns: "repeat(2,50%)",
+      width: "70%",
+      justifyContent: "center",
+      margin: "0 auto",
+    },
+    [sizes.down("xs")]: {
+      gridTemplateColumns: "repeat(1,100%)",
+      gridGap: "1rem",
+    },
   },
 };
 class PaletteList extends Component {

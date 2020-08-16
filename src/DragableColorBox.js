@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { SortableElement } from "react-sortable-hoc";
-
+import sizes from "./styles/sizes";
 const styles = {
   root: {
     width: "20%",
@@ -12,6 +12,16 @@ const styles = {
     position: "relative",
     cursor: "pointer",
     marginBottom: "-4px",
+    [sizes.down("md")]: {
+      width: "50%",
+      height: "20%",
+      marginBottom: "-4px",
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: "10%",
+      marginBottom: "-4px",
+    },
   },
   boxContent: {
     position: "absolute",

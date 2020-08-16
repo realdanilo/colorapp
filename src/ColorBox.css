@@ -4,11 +4,13 @@
   display: inline-block;
   position: relative;
   /* issue while adjusting MORE button */
-  margin-bottom: -3.9px;
+  margin-bottom: -4px;
 }
 @media (max-width: 900px) {
   .ColorBox {
     width: 50%;
+    height: 15%;
+    margin-bottom: -4px;
   }
 }
 @media (max-width: 500px) {
@@ -134,7 +136,7 @@
 @media (max-width: 900px) {
   .SingleColorPalette .ColorBox {
     width: 50%;
-    height: 25%;
+    height: 20%;
   }
 }
 @media (max-width: 500px) {
