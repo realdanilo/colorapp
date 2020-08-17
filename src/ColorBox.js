@@ -4,7 +4,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
 import chroma from "chroma-js";
 import { withStyles } from "@material-ui/styles";
-
+import classNames from "classnames";
 const styles = {
   isLight: {
     color: (props) =>
@@ -42,9 +42,9 @@ class ColorBox extends Component {
       <div style={{ backgroundColor: background }} className="ColorBox">
         <div
           style={{ backgroundColor: background }}
-          className={`copy-overlay ${copied && "show"} `}
+          className={classNames("copy-overlay", { ["show"]: copied })}
         ></div>
-        <div className={`copy-message ${copied && "show"} `}>
+        <div className={classNames("copy-message", { ["show"]: copied })}>
           <h1>Copied!</h1>
           <p className={classes.isLight}>{background}</p>
         </div>

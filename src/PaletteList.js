@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
-import sizes from "./styles/sizes";
-import background from "./styles/bg.svg";
 import Avatar from "@material-ui/core/Avatar";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -15,79 +13,10 @@ import CloseIcon from "@material-ui/icons/Close";
 import CheckIcon from "@material-ui/icons/Check";
 import blue from "@material-ui/core/colors/blue";
 import red from "@material-ui/core/colors/red";
+import styles from "./styles/PaletteListStyles";
 //transition
-import {
-  Transition,
-  CSSTransition,
-  TransitionGroup,
-} from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-const styles = {
-  "@global": {
-    ".fade-exit": {
-      opacity: 1,
-    },
-    ".fade-exit-active": {
-      opacity: 0,
-      transition: "opacity .5s ease-out",
-    },
-  },
-  root: {
-    height: "100vh",
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "center",
-    backgroundColor: "#164aaa",
-    backgroundImage: `url(${background})`,
-    // background by SVGbackgrounds.com
-    overflowY: "scroll",
-  },
-  container: {
-    width: "50%",
-    display: "flex",
-    alignItems: "flex-start",
-    flexDirection: "column",
-    flewWrap: "wrap",
-    [sizes.down("md")]: {
-      width: "80%",
-    },
-  },
-  nav: {
-    display: "flex",
-    width: "100%",
-    justifyContent: "space-between",
-    color: "white",
-    alignItems: "center",
-    "& a": {
-      color: "white",
-      textDecoration: "none",
-    },
-    "& a:hover": {
-      color: "rgba(255,255,255,0.8)",
-    },
-  },
-  title: {
-    fontSize: "25px",
-  },
-  palettes: {
-    boxSizing: "border-box",
-    width: "100%",
-    maxHeight: "100%",
-    display: "grid",
-    gridTemplateColumns: "repeat(3,30%)",
-    gridGap: "2.5rem",
-    [sizes.down("md")]: {
-      gridTemplateColumns: "repeat(2,50%)",
-      width: "70%",
-      justifyContent: "center",
-      margin: "0 auto",
-    },
-    [sizes.down("xs")]: {
-      gridTemplateColumns: "repeat(1,100%)",
-      gridGap: "1rem",
-    },
-  },
-};
 class PaletteList extends Component {
   constructor(props) {
     super(props);
