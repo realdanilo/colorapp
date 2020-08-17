@@ -47,11 +47,11 @@ class PaletteMetaForm extends Component {
     this.setState({ stage: "" });
   };
   render() {
-    const { newPaletteName } = this.state;
+    const { newPaletteName, stage } = this.state;
     const { hideForm } = this.props;
     return (
       <div>
-        <Dialog open={this.state.stage === "emoji"} onClose={hideForm}>
+        <Dialog open={stage === "emoji"} onClose={hideForm}>
           <DialogTitle id="form-dialog-title-2">
             Choose palette Emoji
           </DialogTitle>
@@ -59,7 +59,7 @@ class PaletteMetaForm extends Component {
           <Picker title="Chose one emoji" onSelect={this.handleSelect} />
         </Dialog>
         <Dialog
-          open={this.state.stage === "form"}
+          open={stage === "form"}
           onClose={hideForm}
           aria-labelledby="form-dialog-title"
         >
