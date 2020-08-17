@@ -6,9 +6,6 @@ import sizes from "./styles/sizes";
 import background from "./styles/bg.svg";
 import Avatar from "@material-ui/core/Avatar";
 import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -99,9 +96,9 @@ class PaletteList extends Component {
       deletingId: "",
     };
   }
-  goToPalette(id) {
+  goToPalette = (id) => {
     this.props.history.push(`/palette/${id}`);
-  }
+  };
   openDialog = (id) => {
     this.setState({ dialog: true, deletingId: id });
   };
@@ -130,7 +127,7 @@ class PaletteList extends Component {
                 <MiniPalette
                   key={i}
                   {...p}
-                  handleClick={() => this.goToPalette(p.id)}
+                  handleClick={this.goToPalette}
                   handleDelete={handleDelete}
                   openDialog={this.openDialog}
                 />

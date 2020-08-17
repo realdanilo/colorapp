@@ -67,15 +67,15 @@ const styles = {
   },
 };
 
-function MiniPalette(props) {
+const MiniPalette = React.memo((props) => {
   const {
     classes,
     paletteName,
     emoji,
     colors,
-    handleDelete,
     openDialog,
     id,
+    handleClick,
   } = props;
   const MiniColorBoxes = colors.map((c, i) => (
     <div
@@ -89,7 +89,7 @@ function MiniPalette(props) {
     openDialog(id);
   }
   return (
-    <div className={classes.root} onClick={props.handleClick}>
+    <div className={classes.root} onClick={() => handleClick(id)}>
       <div className={classes.colors}>{MiniColorBoxes}</div>
       <h5 className={classes.title}>
         {paletteName} <span className={classes.emoji}>{emoji}</span>
@@ -102,5 +102,5 @@ function MiniPalette(props) {
       </div>
     </div>
   );
-}
+});
 export default withStyles(styles)(MiniPalette);
