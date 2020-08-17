@@ -42,9 +42,10 @@ class PaletteMetaForm extends Component {
       stage: "emoji",
     });
   };
-  handleSelect = (emoji) => [
-    this.props.savePalette(this.state.newPaletteName, emoji),
-  ];
+  handleSelect = (emoji) => {
+    this.props.savePalette(this.state.newPaletteName, emoji);
+    this.setState({ stage: "" });
+  };
   render() {
     const { newPaletteName } = this.state;
     const { hideForm } = this.props;

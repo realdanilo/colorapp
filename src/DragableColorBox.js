@@ -39,6 +39,7 @@ const styles = {
   deleteIcon: {
     color: "rgba(255,255,255,0.5)",
     transition: ".5s all ease-out",
+    marginRight: "10px",
     "&:hover ": {
       color: "white",
     },

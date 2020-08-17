@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
+import Page from "./Page";
 //animation
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -51,56 +52,56 @@ class App extends Component {
         <Route
           render={({ location }) => (
             <TransitionGroup>
-              <CSSTransition key={location.key} classNames="fade" timeout={500}>
+              <CSSTransition key={location.key} classNames="page" timeout={500}>
                 <Switch location={location}>
                   <Route
                     exact
                     path="/"
                     render={(rp) => (
-                      <div className="page">
+                      <Page>
                         <PaletteList
                           palettes={this.state.palettes}
                           {...rp}
                           handleDelete={this.deletePalette}
                         />
-                      </div>
+                      </Page>
                     )}
                   />
                   <Route
                     exact
                     path="/palette/new"
                     render={(rp) => (
-                      <div className="page">
+                      <Page>
                         <NewPaletteForm
                           {...rp}
                           savePalette={this.savePalette}
                           palettes={this.state.palettes}
                         />
-                      </div>
+                      </Page>
                     )}
                   />
                   <Route
                     exact
                     path="/palette/:id"
                     render={(rp) => (
-                      <div className="page">
+                      <Page>
                         <Palette
                           palette={this.findPalette(rp.match.params.id)}
                         />
-                      </div>
+                      </Page>
                     )}
                   />
                   <Route
                     exact
                     path="/palette/:paletteId/:colorId"
                     render={(rp) => (
-                      <div className="page">
+                      <Page>
                         <SingleColorPalette
                           {...rp}
                           colorId={rp.match.params.colorId}
                           palette={this.findPalette(rp.match.params.paletteId)}
                         />
-                      </div>
+                      </Page>
                     )}
                   />
                   <Route render={() => <h1>Not found</h1>} />
